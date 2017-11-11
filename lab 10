@@ -1,0 +1,36 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+alter PROCEDURE getFactorial
+	@number int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	DECLARE @nfact int = 1;
+	SET NOCOUNT ON;
+	
+	if (@number < 0)
+		PRINT 'Invalid Input';
+	else
+		begin
+			while (@number > 0)
+			begin
+				set @nfact = @nfact * @number ;
+				--PRINT @nfact;
+				set @number = @number -  1;	
+				--PRINT @number;		 
+			 end
+			 
+			 select @nfact;
+		end
+	
+   
+END
+GO
